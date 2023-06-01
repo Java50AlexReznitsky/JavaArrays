@@ -18,15 +18,21 @@ public class ArraysInt {
 		return res;
 	}
 
-	public static int[] removeNumber(int[] arrya, int index) {
-		// TODO returns array with no number at given number
-		return null;
+	public static int[] removeNumber(int[] array, int index) {
+		int[] newArr = new int[array.length - 1];
+		for (int i = 0, k = 0; i < array.length; i++) {
+			if (i != index) {
+				newArr[k] = array[i];
+				k++;
+			}
+		}
+		return newArr;
 	}
 
-	public static int[] insertNumberorted(int[] arraySorted, int index) {
-		// TODO takes sorted array and number to insert
-		// returns sorted array with given number at a proper position
-		// apply the standart method int binarySearch(int[] arraySorted,int key)
-		return null;
+	public static int[] insertNumberSorted(int[] arraySorted, int number) {
+		int index = Arrays.binarySearch(arraySorted, number);
+		int indexRes = index >= 0 ? index : (-(index) - 1);
+		int[] res = insertNumber(arraySorted, indexRes, number);
+		return res;
 	}
 }

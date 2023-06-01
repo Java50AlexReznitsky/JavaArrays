@@ -1,6 +1,7 @@
 package telran.arrays.test;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -72,17 +73,47 @@ public class ArraysTest {
 
 	@Test
 	void removeNumberTest() {
-		// TODO
+		int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+		int[] expected1 = { 1, 2, 3, 5, 6, 7 };
+		int index1 = 3;
+		assertArrayEquals(expected1, ArraysInt.removeNumber(array, index1));
+		int[] expected2 = { 2, 3, 4, 5, 6, 7 };
+		int index2 = 0;
+		assertArrayEquals(expected2, ArraysInt.removeNumber(array, index2));
+		int[] expected3 = { 1, 2, 3, 4, 5, 6 };
+		int index3 = 6;
+		assertArrayEquals(expected3, ArraysInt.removeNumber(array, index3));
 	}
 
 	@Test
 	void binarySearchTest() {
-		// TODO test for understanding the standart methods arrays.binarySearch(int[]
-		// arraySorted,int key)
+		int[] sortedArr = { 1, 3, 7, 9, 11 };
+		assertEquals(-3, Arrays.binarySearch(sortedArr, 5));
+		assertEquals(0, Arrays.binarySearch(sortedArr, 1));
+		assertEquals(2, Arrays.binarySearch(sortedArr, 7));
+		assertEquals(sortedArr.length - 1, Arrays.binarySearch(sortedArr, 11));
+		assertEquals((-(sortedArr.length) - 1), Arrays.binarySearch(sortedArr, 12));
 	}
 
 	@Test
 	void insertSortedTest() {
 		// TODO
+		int[] sortedArr = { 1, 3, 7, 9, 11 };
+
+		int[] expectedArr = { 1, 1, 3, 7, 9, 11 };
+		assertArrayEquals(expectedArr, ArraysInt.insertNumberSorted(sortedArr, 1));
+
+		int[] expectedArr1 = { 1, 2, 3, 7, 9, 11 };
+		assertArrayEquals(expectedArr1, ArraysInt.insertNumberSorted(sortedArr, 2));
+
+		int[] expectedArr2 = { 1, 3, 7, 9, 11, 12 };
+		assertArrayEquals(expectedArr2, ArraysInt.insertNumberSorted(sortedArr, 12));
+
+		int[] expectedArr3 = { 0, 1, 3, 7, 9, 11 };
+		assertArrayEquals(expectedArr3, ArraysInt.insertNumberSorted(sortedArr, 0));
+
+		int[] expectedArr4 = { -15, 1, 3, 7, 9, 11 };
+		assertArrayEquals(expectedArr4, ArraysInt.insertNumberSorted(sortedArr, -15));
+
 	}
 }
