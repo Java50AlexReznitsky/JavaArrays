@@ -73,15 +73,15 @@ public class ArraysTest {
 
 	@Test
 	void removeNumberTest() {
-		int[] array = { 1, 2, 3, 4, 5, 6, 7 };
-		int[] expected1 = { 1, 2, 3, 5, 6, 7 };
+		int[] array = { 1, 3, 7, 9, 11 };
+		int[] expected1 = { 1, 3, 7, 11 };
 		int index1 = 3;
 		assertArrayEquals(expected1, ArraysInt.removeNumber(array, index1));
-		int[] expected2 = { 2, 3, 4, 5, 6, 7 };
+		int[] expected2 = { 3, 7, 9, 11 };
 		int index2 = 0;
 		assertArrayEquals(expected2, ArraysInt.removeNumber(array, index2));
-		int[] expected3 = { 1, 2, 3, 4, 5, 6 };
-		int index3 = 6;
+		int[] expected3 = { 1, 3, 7, 9 };
+		int index3 = 4;
 		assertArrayEquals(expected3, ArraysInt.removeNumber(array, index3));
 	}
 
