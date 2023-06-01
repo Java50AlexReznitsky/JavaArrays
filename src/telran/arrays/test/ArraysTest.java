@@ -96,8 +96,7 @@ public class ArraysTest {
 	}
 
 	@Test
-	void insertSortedTest() {
-		// TODO
+	void insertNumberSortedTest() {
 		int[] sortedArr = { 1, 3, 7, 9, 11 };
 
 		int[] expectedArr = { 1, 1, 3, 7, 9, 11 };
