@@ -27,7 +27,7 @@ public class ArraysInt {
 
 	public static int[] insertNumberSorted(int[] arraySorted, int number) {
 		int index = Arrays.binarySearch(arraySorted, number);
-		index = index >= 0 ? index : (-(index) - 1);
+		index = index >= 0 ? index : -index - 1;
 		return insertNumber(arraySorted, index, number);
 	}
 }
