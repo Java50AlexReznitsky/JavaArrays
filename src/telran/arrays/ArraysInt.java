@@ -20,19 +20,20 @@ public class ArraysInt {
 
 	public static int[] removeNumber(int[] array, int index) {
 		int[] newArr = new int[array.length - 1];
-		for (int i = 0, k = 0; i < array.length; i++) {
-			if (i != index) {
-				newArr[k] = array[i];
-				k++;
-			}
-		}
+		System.arraycopy(array, 0, newArr, 0, index);
+		System.arraycopy(array, index +1, newArr, 0, index);
+//		for (int i = 0, k = 0; i < array.length; i++) {
+//			if (i != index) {
+//				newArr[k] = array[i];
+//				k++;
+//			}
+//		}
 		return newArr;
 	}
 
 	public static int[] insertNumberSorted(int[] arraySorted, int number) {
 		int index = Arrays.binarySearch(arraySorted, number);
-		int indexRes = index >= 0 ? index : (-(index) - 1);
-		int[] res = insertNumber(arraySorted, indexRes, number);
-		return res;
+		index = index >= 0 ? index : (-(index) - 1);
+		return insertNumber(arraySorted, index, number);
 	}
 }
