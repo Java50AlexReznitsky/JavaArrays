@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 import telran.arrays.ArraysInt;
 
@@ -114,5 +115,71 @@ public class ArraysTest {
 		int[] expectedArr4 = { -15, 1, 3, 7, 9, 11 };
 		assertArrayEquals(expectedArr4, ArraysInt.insertNumberSorted(sortedArr, -15));
 
+	}
+
+	@Test
+	@Timeout(3)
+	void maxLongTest() {
+		assertEquals(Long.MAX_VALUE, getLongMax());
+	}
+
+	private long getLongMax() {
+		long res = 1;
+		while (res > 0) {
+			res *= 2;
+		}
+
+		return res - 1;
+	}
+
+	@Test
+	void maxIntTest() {
+		assertEquals(Integer.MAX_VALUE, getIntMax());
+	}
+
+	private long getIntMax() {
+		int res = 1;
+		while (res > 0) {
+			res++;
+		}
+
+		return res - 1;
+	}
+
+	@Test
+	void myBinarySearchNumberTest() {
+		int[] src = { 1, 3, 3, 3, 5, 7 };
+		assertEquals(-1, ArraysInt.myBinarySearchNumber(src, 0));
+		assertEquals(-5, ArraysInt.myBinarySearchNumber(src, 4));
+		assertEquals(1, ArraysInt.myBinarySearchNumber(src, 3));
+		assertEquals(-7, ArraysInt.myBinarySearchNumber(src, 8));
+	}
+
+	@Test
+	void muchRepeatedTest() {
+		int[] array = new int[10];
+		for (int i = 0; i < 10; i++) {
+			assertEquals(0, ArraysInt.myBinarySearchNumber(array, 0));
+		}
+	}
+
+	@Test
+	void quickSortTest() {
+		int[] arr = new int[100_000_000];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = ArraysInt.getRandomInt(0, 9);
+		}
+		ArraysInt.quickSort(arr);
+		assertTrue(arr instanceof int[]);
+	}
+
+	@Test
+	void bubbleSortTest() {
+		int[] arr = new int[100_000];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = ArraysInt.getRandomInt(0, 9);
+		}
+		ArraysInt.bubbleSort(arr);
+		assertTrue(arr instanceof int[]);
 	}
 }
