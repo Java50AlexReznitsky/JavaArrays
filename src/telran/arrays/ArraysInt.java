@@ -42,21 +42,21 @@ public class ArraysInt {
 		return index < array.length ? index : -1;
 	}
 
-	public static int binarySearch(int[] array, int number) {
-		// searching for the given number in the given array that should be sorted
-		// returns index value for the number if exists otherwise -1
-		int left = 0, right = array.length - 1;
-		int middle = right / 2;
-		while (left <= right && array[middle] != number) {
-			if (number < array[middle]) {
-				right = middle - 1;
-			} else {
-				left = middle + 1;
-			}
-			middle = (left + right) / 2;
-		}
-		return left <= right ? middle : -1;
-	}
+//	public static int binarySearch(int[] array, int number) {
+//		// searching for the given number in the given array that should be sorted
+//		// returns index value for the number if exists otherwise -1
+//		int left = 0, right = array.length - 1;
+//		int middle = right / 2;
+//		while (left <= right && array[middle] != number) {
+//			if (number < array[middle]) {
+//				right = middle - 1;
+//			} else {
+//				left = middle + 1;
+//			}
+//			middle = (left + right) / 2;
+//		}
+//		return left <= right ? middle : -1;
+//	}
 
 	public static int myBinarySearchNumber(int[] array, int number) {
 		int left = 0;
