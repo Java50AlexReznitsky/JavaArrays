@@ -55,7 +55,6 @@ public class ArraysInt {
 			}
 			middle = (left + right) / 2;
 		}
-//TODO return first element if there are many of the same number
 		return left <= right ? middle : -1;
 	}
 
@@ -63,11 +62,11 @@ public class ArraysInt {
 		int left = 0;
 		int right = array.length - 1;
 		int middle = right / 2;
-		int result = -1; // Initialize the result to -1
+		int result = -1;
 		while (left <= right) {
 			if (array[middle] == number) {
-				result = middle; // Store the current middle index as a potential result
-				right = middle - 1; // Continue searching on the left side for the first occurrence
+				result = middle;
+				right = middle - 1;
 			} else if (number < array[middle]) {
 				right = middle - 1;
 			} else {
@@ -78,7 +77,7 @@ public class ArraysInt {
 		if (result != -1) {
 			return result;
 		} else {
-			return -(left + 1); // Return the negative value if the number is not found
+			return -(left + 1);
 		}
 	}
 
