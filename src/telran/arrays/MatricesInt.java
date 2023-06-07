@@ -10,13 +10,21 @@ public class MatricesInt {
 		return matrix;
 	}
 
-	public static int[] getColumn(int[][] matrix, int column) {
-		// TODO
-		return null;
+	public static int[] getColumn(int[][] src, int column) {
+		int[] arr = new int[src.length];
+		for (int i = 0; i < src.length; i++) {
+			arr[i] = src[i][column];
+		}
+		return arr;
 	}
 
 	public static int[][] transpMatrix(int[][] matrix) {
-		// TODO
-		return null;
+		int[][] transp = new int[matrix[0].length][matrix.length];
+		for (int col = 0; col < matrix[0].length; col++) {
+			for (int row = 0; row < matrix.length; row++) {
+				transp[col][row] = matrix[row][col];
+			}
+		}
+		return transp;
 	}
 }
