@@ -46,17 +46,23 @@ public class InterviewTasks {
 		return res;
 	}
 
-// is not working if there are two equal numbers in array
 	public static void sort(short[] array) {
-		boolean[] helper = new boolean[Short.MAX_VALUE];
-		for (int i = 0; i < array.length; i++) {
-			helper[array[i]] = true;
+		short max = array[0];
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] > max) {
+				max = array[i];
+			}
 		}
-		short temp = 0;
-		for (short i = 0; i < array.length; i++) {
-			if (helper[i]) {
-				array[temp] = i;
-				temp++;
+		int[] count = new int[max + 1];
+		for (int i = 0; i < array.length; i++) {
+			count[array[i]]++;
+		}
+		int index = 0;
+		for (short i = 0; i <= max; i++) {
+			while (count[i] > 0) {
+				array[index] = i;
+				index++;
+				count[i]--;
 			}
 		}
 	}
